@@ -1,0 +1,14 @@
+<app-header/>
+<main>
+  <ul id="users">
+    <li *ngFor="let user of Users">
+      <app-user [user]="user" [selected]="user.id === selectedUserId"  (select)="onselecteUser($event)"/>
+    </li>
+  </ul>
+
+ <app-tasks *ngIf="selecteduser; else else_block" [username]="selecteduser ? selecteduser.name:'No User selected'" [UserID]="selecteduser.id"/>
+<ng-template #else_block>
+    <p>Please Select any User for More Detail</p>
+</ng-template>
+ 
+</main>
