@@ -1,6 +1,6 @@
 <section id="tasks">
     <div  *ngIf="add_div">
-        <app-add-task  (cancel)="closeadd()" (add)="OnaddTask($event)"/>
+        <app-add-task [userId]="UserID" (close)="oncloseaddTask()"/>
     </div>
    
     <header>
@@ -10,7 +10,7 @@
         </menu>
     </header>
     <ul>
-        <li *ngFor="let item of selecteduser"><app-task-list [tasks]="item" (completed)="onCompletedTask($event)"/></li>
+        <li *ngFor="let item of selecteduser"><app-task-list [tasks]="item"/></li>
         
     </ul>
     </section>
